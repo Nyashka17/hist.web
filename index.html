@@ -362,6 +362,118 @@
         border-radius: 0.75rem;
         margin-bottom: 1rem;
       }
+
+      /* Steam engine application modals */
+      .app-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        overflow-y: auto;
+        padding: 2rem;
+      }
+
+      .app-modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .app-modal-content {
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        max-width: 900px;
+        width: 100%;
+        margin: auto;
+        backdrop-filter: blur(10px);
+        position: relative;
+        max-height: 85vh;
+      }
+
+      .app-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        transition: all 0.2s;
+      }
+
+      .app-modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+      }
+
+      .app-modal-body {
+        padding: 2rem;
+        overflow-y: auto;
+      }
+
+      .app-modal-title {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .app-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .app-gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .app-video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .app-video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .app-modal-desc {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #d4d4d4;
+      }
+
+      .app-modal-desc p {
+        margin-bottom: 1rem;
+      }
     </style>
 <base target="_blank">
 </head>
@@ -479,8 +591,8 @@
                         <div>
                             <div class="font-bold text-lg" data-lang="pl">Początki produkcji przemysłowej</div>
                             <div class="font-bold text-lg" data-lang="ru">Начало промышленного производства</div>
-                            <div class="text-sm text-gray-400" data-lang="pl">Wielka Brytania - kolebka rewolucji przemysłowej</div>
-                            <div class="text-sm text-gray-400" data-lang="ru">Великобритания - колыбель промышленной революции</div>
+                            <div class="text-sm text-gray-400" data-lang="pl">Wielka Brytania - początek rewolucji przemysłowej</div>
+                            <div class="text-sm text-gray-400" data-lang="ru">Великобритания - начало промышленной революции</div>
                         </div>
                     </div>
 
@@ -504,8 +616,8 @@
             <div class="fade-in w-full">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm mono-font">01</span>
-                    <span class="text-gray-400 text-sm" data-lang="pl">Ludność i demografia</span>
-                    <span class="text-gray-400 text-sm" data-lang="ru">Население и демография</span>
+                    <span class="text-gray-400 text-sm" data-lang="pl">Wzrost liczby ludności</span>
+                    <span class="text-gray-400 text-sm" data-lang="ru">Рост населения</span>
                 </div>
 
                 <h2 class="title-lg mb-6" data-lang="pl">Wzrost liczby ludności w Europie</h2>
@@ -514,8 +626,8 @@
                 <div class="grid-custom">
                     <div class="space-y-6">
                         <div class="card">
-                            <h3 class="title-md text-blue-400" data-lang="pl">Przyczyny wzrostu demograficznego</h3>
-                            <h3 class="title-md text-blue-400" data-lang="ru">Причины демографического роста</h3>
+                            <h3 class="title-md text-blue-400" data-lang="pl">Przyczyny wzrostu</h3>
+                            <h3 class="title-md text-blue-400" data-lang="ru">Причины роста</h3>
                             <div class="prose-custom">
                                 <p data-lang="pl">W XVIII wieku nastąpiła ważna zmiana dotycząca zaludnienia Europy. Rozpoczął się wówczas stały wzrost liczby mieszkańców kontynentu, która w ciągu stu lat zwiększyła się od 140 do 180 milionów. Powodów tego zjawiska do dziś w pełni nie wyjaśniono, jednak na pewno wpłynęło na to kilka czynników:</p>
                                 <p data-lang="ru">В XVIII веке произошло важное изменение, касающееся населения Европы. Тогда начался стабильный рост числа жителей континента, который за сто лет увеличился с 140 до 180 миллионов. Причины этого явления до сих пор полностью не объяснены, но на это определенно повлияло несколько факторов:</p>
@@ -529,64 +641,6 @@
                                     <li data-lang="pl"><strong>Wzrost produkcji rolnej</strong> - lepsze wyżywienie dzięki płodozmianowi i uprawie ziemniaków</li>
                                     <li data-lang="ru"><strong>Рост сельскохозяйственного производства</strong> - лучшее питание благодаря севообороту и выращиванию картофеля</li>
                                 </ul>
-                            </div>
-                        </div>
-
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">140→180</span>
-                                <span class="stat-label" data-lang="pl">mln mieszkańców Europy</span>
-                                <span class="stat-label" data-lang="ru">млн жителей Европы</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">~30%</span>
-                                <span class="stat-label" data-lang="pl">Wzrost w ciągu stulecia</span>
-                                <span class="stat-label" data-lang="ru">Рост за столетие</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">1796</span>
-                                <span class="stat-label" data-lang="pl">Pierwsze szczepienie Jennera</span>
-                                <span class="stat-label" data-lang="ru">Первая вакцинация Дженнера</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <img src="https://kimi-web-img.moonshot.cn/img/static01.nyt.com/2541aef764161b181889756a2c421fa0ef6bda5d.jpg" alt="Edward Jenner vaccination" class="book-image">
-
-                        <div class="card">
-                            <h3 class="title-md text-green-400 mb-4" data-lang="pl">Skutki i konsekwencje wzrostu populacji</h3>
-                            <h3 class="title-md text-green-400 mb-4" data-lang="ru">Последствия и следствия роста населения</h3>
-
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="p-3 bg-green-500/10 rounded-lg border border-green-500/20">
-                                    <div class="font-bold text-green-400 mb-1" data-lang="pl">+ Pozytywne</div>
-                                    <div class="font-bold text-green-400 mb-1" data-lang="ru">+ Положительные</div>
-                                    <ul class="text-sm space-y-1 text-gray-300">
-                                        <li data-lang="pl">• Większa siła robocza</li>
-                                        <li data-lang="ru">• Больше рабочей силы</li>
-                                        <li data-lang="pl">• Rozwój rynku zbytu</li>
-                                        <li data-lang="ru">• Развитие рынка сбыта</li>
-                                        <li data-lang="pl">• Innowacje techniczne</li>
-                                        <li data-lang="ru">• Технические инновации</li>
-                                        <li data-lang="pl">• Rozwój miast</li>
-                                        <li data-lang="ru">• Развитие городов</li>
-                                    </ul>
-                                </div>
-                                <div class="p-3 bg-red-500/10 rounded-lg border border-red-500/20">
-                                    <div class="font-bold text-red-400 mb-1" data-lang="pl">- Negatywne</div>
-                                    <div class="font-bold text-red-400 mb-1" data-lang="ru">- Отрицательные</div>
-                                    <ul class="text-sm space-y-1 text-gray-300">
-                                        <li data-lang="pl">• Przeludnienie miast</li>
-                                        <li data-lang="ru">• Перенаселение городов</li>
-                                        <li data-lang="pl">• Ubóstwo i nędza</li>
-                                        <li data-lang="ru">• Бедность и нищета</li>
-                                        <li data-lang="pl">• Konflikty o zasoby</li>
-                                        <li data-lang="ru">• Конфликты за ресурсы</li>
-                                        <li data-lang="pl">• Choroby w slumsach</li>
-                                        <li data-lang="ru">• Болезни в трущобах</li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
 
@@ -611,12 +665,43 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card border-l-4 border-l-blue-500">
-                            <h4 class="font-bold mb-2" data-lang="pl">Edward Jenner (1749-1823)</h4>
-                            <h4 class="font-bold mb-2" data-lang="ru">Эдвард Дженнер (1749-1823)</h4>
-                            <p class="text-sm text-gray-300" data-lang="pl">Angielski lekarz, który opracował metodę szczepienia przeciw ospie. W 1796 roku zaszczepił ośmioletniego chłopca wirusem krowianki (łagodniejsza odmiana ospy). Po wyzdrowieniu chłopca, Jenner wszczepił mu zarazki prawdziwej ospy - choroba nie rozwinęła się dzięki uzyskanej odporności.</p>
-                            <p class="text-sm text-gray-300" data-lang="ru">Английский врач, разработавший метод вакцинации против оспы. В 1796 году он привил восьмилетнему мальчику вирус коровьей оспы (более мягкий вид оспы). После выздоровления мальчика Дженнер ввел ему микробы настоящей оспы - болезнь не развилась благодаря приобретенному иммунитету.</p>
+                    <div class="space-y-6">
+                        <img src="https://kimi-web-img.moonshot.cn/img/static01.nyt.com/2541aef764161b181889756a2c421fa0ef6bda5d.jpg" alt="Edward Jenner vaccination" class="book-image">
+
+                        <div class="card">
+                            <h3 class="title-md text-green-400 mb-4" data-lang="pl">Skutki i konsekwencje wzrostu populacji</h3>
+                            <h3 class="title-md text-green-400 mb-4" data-lang="ru">Последствия и следствия роста населения</h3>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-3 bg-green-500/10 rounded-lg border border-green-500/20">
+                                    <div class="font-bold text-green-400 mb-1" data-lang="pl">+ Pozytywne</div>
+                                    <div class="font-bold text-green-400 mb-1" data-lang="ru">+ Положительные</div>
+                                    <ul class="text-sm space-y-1 text-gray-300">
+                                        <li data-lang="pl">• Większa siła robocza</li>
+                                        <li data-lang="ru">• Больше рабочей силы</li>
+                                        <li data-lang="pl">• Rozwój rynku </li>
+                                        <li data-lang="ru">• Развитие рынка </li>
+                                        <li data-lang="pl">• Innowacje techniczne</li>
+                                        <li data-lang="ru">• Технические инновации</li>
+                                        <li data-lang="pl">• Rozwój miast</li>
+                                        <li data-lang="ru">• Развитие городов</li>
+                                    </ul>
+                                </div>
+                                <div class="p-3 bg-red-500/10 rounded-lg border border-red-500/20">
+                                    <div class="font-bold text-red-400 mb-1" data-lang="pl">- Negatywne</div>
+                                    <div class="font-bold text-red-400 mb-1" data-lang="ru">- Отрицательные</div>
+                                    <ul class="text-sm space-y-1 text-gray-300">
+                                        <li data-lang="pl">• Przeludnienie miast</li>
+                                        <li data-lang="ru">• Перенаселение городов</li>
+                                        <li data-lang="pl">• Ubóstwo i nędza</li>
+                                        <li data-lang="ru">• Бедность и нищета</li>
+                                        <li data-lang="pl">• Konflikty o zasoby</li>
+                                        <li data-lang="ru">• Конфликты за ресурсы</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -648,35 +733,21 @@
                             </div>
                         </div>
 
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">30→55</span>
-                                <span class="stat-label" data-lang="pl">Miast powyżej 50 tys. (1700-1800)</span>
-                                <span class="stat-label" data-lang="ru">Городов свыше 50 тыс. (1700-1800)</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">575 tys.</span>
-                                <span class="stat-label" data-lang="pl">Londyn w 1700 r.</span>
-                                <span class="stat-label" data-lang="ru">Лондон в 1700 г.</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">&lt;30%</span>
-                                <span class="stat-label" data-lang="pl">Ludności miejskiej w Europie</span>
-                                <span class="stat-label" data-lang="ru">Городского населения в Европе</span>
-                            </div>
-                        </div>
-
                         <div class="card">
                             <h3 class="title-md text-purple-400 mb-4" data-lang="pl">Największe miasta Europy w 1700 r.</h3>
                             <h3 class="title-md text-purple-400 mb-4" data-lang="ru">Крупнейшие города Европы в 1700 г.</h3>
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>№</span>
+                                    <span class="mono-font text-purple-400">mieszkancow</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
                                     <span class="flex items-center gap-2"><i class="fas fa-crown text-yellow-400"></i> 1. Londyn</span>
-                                    <span class="mono-font text-purple-400 font-bold">575 tys.</span>
+                                    <span class="mono-font text-purple-400 font-bold">500 tys.</span>
                                 </div>
                                 <div class="flex justify-between items-center p-3 bg-white/5 rounded">
                                     <span>2. Paryż</span>
-                                    <span class="mono-font text-purple-400">500 tys.</span>
+                                    <span class="mono-font text-purple-400">400 tys.</span>
                                 </div>
                                 <div class="flex justify-between items-center p-3 bg-white/5 rounded">
                                     <span>3. Neapol</span>
@@ -687,30 +758,36 @@
                                     <span class="mono-font text-purple-400">180 tys.</span>
                                 </div>
                                 <div class="flex justify-between items-center p-3 bg-white/5 rounded">
-                                    <span>5. Wenecja</span>
-                                    <span class="mono-font text-purple-400">140 tys.</span>
+                                    <span>5. Moskwa</span>
+                                    <span class="mono-font text-purple-400">150 tys.</span>
                                 </div>
                                 <div class="flex justify-between items-center p-3 bg-white/5 rounded">
-                                    <span>6. Rzym</span>
-                                    <span class="mono-font text-purple-400">135 tys.</span>
+                                    <span>6. Wenecja</span>
+                                    <span class="mono-font text-purple-400">138 tys.</span>
                                 </div>
                                 <div class="flex justify-between items-center p-3 bg-white/5 rounded">
-                                    <span>7. Mediolan</span>
+                                    <span>7. Rzym</span>
+                                    <span class="mono-font text-purple-400">130 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>8. Mediolan</span>
                                     <span class="mono-font text-purple-400">120 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>9. Madryt</span>
+                                    <span class="mono-font text-purple-400">100 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>10. Wiedeń</span>
+                                    <span class="mono-font text-purple-400">100 tys.</span>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="space-y-6">
                         <img src="https://kimi-web-img.moonshot.cn/img/www.hist.cam.ac.uk/f4c8da58d0b042a2eb35b9fbba09ef573e234e3f.jpg" alt="18th century London" class="book-image">
-
-                        <div class="card border-l-4 border-l-purple-500">
-                            <h4 class="font-bold mb-2" data-lang="pl">Ciekawostka z podręcznika</h4>
-                            <h4 class="font-bold mb-2" data-lang="ru">Интересный факт из учебника</h4>
-                            <p class="text-sm text-gray-300" data-lang="pl">Mimo postępującej urbanizacji, Europa nadal pozostawała kontynentem o przewadze ludności wiejskiej. Nawet w krajach posiadających najwięcej miast (Wielka Brytania, Holandia) odsetek ludności miejskiej na początku XIX wieku nie przekraczał 30%. To oznacza, że większość ludzi nadal mieszkała na wsi i zajmowała się rolnictwem.</p>
-                            <p class="text-sm text-gray-300" data-lang="ru">Несмотря на продолжающуюся урбанизацию, Европа оставалась континентом с преобладанием сельского населения. Даже в странах с наибольшим количеством городов (Великобритания, Голландия) доля городского населения в начале XIX века не превышала 30%. Это означает, что большинство людей по-прежнему жили в деревне и занимались сельским хозяйством.</p>
-                        </div>
 
                         <div class="card">
                             <h4 class="font-bold mb-3" data-lang="pl">Zmiany w strukturze społecznej:</h4>
@@ -720,12 +797,7 @@
                                     <i class="fas fa-arrow-right text-purple-400 mt-1"></i>
                                     <span data-lang="pl">Powstanie klasy robotniczej w miastach</span>
                                     <span data-lang="ru">Возникновение рабочего класса в городах</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-arrow-right text-purple-400 mt-1"></i>
-                                    <span data-lang="pl">Rozwój burżuazji (klasy średniej)</span>
-                                    <span data-lang="ru">Развитие буржуазии (среднего класса)</span>
-                                </li>
+                                </li
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-arrow-right text-purple-400 mt-1"></i>
                                     <span data-lang="pl">Upadek cechów rzemieślniczych</span>
@@ -739,13 +811,55 @@
                             </ul>
                         </div>
 
-                        <div class="widget-box">
-                            <h4 class="font-bold mb-2" data-lang="pl">Pytanie do przemyślenia:</h4>
-                            <h4 class="font-bold mb-2" data-lang="ru">Вопрос для размышления:</h4>
-                            <p class="text-sm italic" data-lang="pl">Wskaż regiony, w których na początku XVIII i XIX w. liczba wielkich miast była większa niż w innych częściach kontynentu. O czym to może świadczyć?</p>
-                            <p class="text-sm italic" data-lang="ru">Укажите регионы, где в начале XVIII и XIX в. количество больших городов было больше, чем в других частях континента. О чем это может свидетельствовать?</p>
-                            <p class="text-sm mt-2 text-gray-400" data-lang="pl">Odpowiedź: Regiony zachodniej Europy (Anglia, Holandia, Francja) - świadczy to o wyższym poziomie rozwoju gospodarczego i handlowego tych obszarów.</p>
-                            <p class="text-sm mt-2 text-gray-400" data-lang="ru">Ответ: Регионы Западной Европы (Англия, Голландия, Франция) - это свидетельствует о более высоком уровне экономического и торгового развития этих областей.</p>
+                        <div class="card">
+                            <h3 class="title-md text-purple-400 mb-4" data-lang="pl">Największe miasta Europy w 1800 r.</h3>
+                            <h3 class="title-md text-purple-400 mb-4" data-lang="ru">Крупнейшие города Европы в 1800 г.</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>№</span>
+                                    <span class="mono-font text-purple-400">mieszkancow</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span class="flex items-center gap-2"><i class="fas fa-crown text-yellow-400"></i> 1. Londyn</span>
+                                    <span class="mono-font text-purple-400 font-bold">1000 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>2. Paryż</span>
+                                    <span class="mono-font text-purple-400">600 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>3. Neapol</span>
+                                    <span class="mono-font text-purple-400">426 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>4. Moskwa</span>
+                                    <span class="mono-font text-purple-400">400 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>5. Wiedeń</span>
+                                    <span class="mono-font text-purple-400">240 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>6. Amsterdam</span>
+                                    <span class="mono-font text-purple-400">220 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>7. Dublin</span>
+                                    <span class="mono-font text-purple-400">200 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>8. Petersburg</span>
+                                    <span class="mono-font text-purple-400">200 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>9. Lizbona</span>
+                                    <span class="mono-font text-purple-400">180 tys.</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-white/5 rounded">
+                                    <span>10. Berlin</span>
+                                    <span class="mono-font text-purple-400">172 tys.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -785,7 +899,7 @@
                             </h4>
                             <p class="text-sm mb-3" data-lang="pl"><strong>Płodozmian</strong> to sposób uprawy ziemi polegający na tym, że na poszczególnych częściach pola uprawia się na zmianę różne gatunki roślin. Zwiększa to urodzajność gleby i zapobiega jej wyjałowieniu. Odpowiednie nawożenie gleby pozwoliło na uprawę bardziej wymagających i wydajnych odmian zbóż.</p>
                             <p class="text-sm mb-3" data-lang="ru"><strong>Севооборот</strong> - способ обработки земли, заключающийся в том, что на отдельных частях поля поочередно выращивают разные культуры. Это повышает плодородие почвы и предотвращает её истощение. Соответствующее удобрение почвы позволило выращивать более требовательные и продуктивные сорта зерновых.</p>
-                            <img src="https://kimi-web-img.moonshot.cn/img/www.daviddarling.info/b76cb8bb9536254a0082fd2043630099016300d0.jpg" alt="Crop rotation" class="book-image" style="max-height: 550px; object-fit: cover;">
+                            <img src="https://direct.farm/_next/image?url=https%3A%2F%2Fdirect.farm%2Fcontent%2Febd%2Febd1800d88a045c5b82468675d411f4b1295167.webp&w=828&q=75" alt="Crop rotation" class="book-image" style="max-height: 550px; object-fit: cover;">
                             <div class="grid grid-cols-4 gap-2 text-center text-xs">
                                 <div class="bg-black/30 p-2 rounded" data-lang="pl">Zboża</div>
                                 <div class="bg-black/30 p-2 rounded" data-lang="pl">Buraki</div>
@@ -796,38 +910,6 @@
                                 <div class="bg-black/30 p-2 rounded" data-lang="ru">Травы</div>
                                 <div class="bg-black/30 p-2 rounded" data-lang="ru">Корнеплоды</div>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <h4 class="font-bold mb-3" data-lang="pl">Inne innowacje rolnicze:</h4>
-                            <h4 class="font-bold mb-3" data-lang="ru">Другие сельскохозяйственные инновации:</h4>
-                            <ul class="space-y-2 text-sm">
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-check text-green-400 mt-1"></i>
-                                    <span data-lang="pl"><strong>Wapnowanie gleby</strong> - poprawa jakości i struktury ziemi</span>
-                                    <span data-lang="ru"><strong>Известкование почвы</strong> - улучшение качества и структуры земли</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-check text-green-400 mt-1"></i>
-                                    <span data-lang="pl"><strong>Siewnik Jethro Tulla (1701)</strong> - mechanizacja siewu, równomierne rozrzucanie nasion</span>
-                                    <span data-lang="ru"><strong>Сеялка Джетро Талла (1701)</strong> - механизация посева, равномерное распределение семян</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-check text-green-400 mt-1"></i>
-                                    <span data-lang="pl"><strong>Uprawa ziemniaków</strong> - więcej kalorii z hektara, możliwość wyżywienia większej populacji</span>
-                                    <span data-lang="ru"><strong>Выращивание картофеля</strong> - больше калорий с гектара, возможность прокормить большее население</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-check text-green-400 mt-1"></i>
-                                    <span data-lang="pl"><strong>Nowe rasy bydła</strong> - selekcja dająca więcej mleka i mięsa</span>
-                                    <span data-lang="ru"><strong>Новые породы скота</strong> - селекция дающая больше молока и мяса</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-check text-green-400 mt-1"></i>
-                                    <span data-lang="pl"><strong>Buraki cukrowe</strong> - rozwój produkcji cukru, wcześniej dostępnego tylko dla bogatych</span>
-                                    <span data-lang="ru"><strong>Сахарная свекла</strong> - развитие производства сахара, ранее доступного только богатым</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
@@ -856,17 +938,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-white/5 rounded text-xs text-gray-400">
-                                <span data-lang="pl">Źródło: E. Rostworowski, Historia powszechna XVIII w., Warszawa 1995, s. 33</span>
-                                <span data-lang="ru">Источник: Е. Ростворовский, Всеобщая история XVIII в., Варшава 1995, с. 33</span>
-                            </div>
                         </div>
 
                         <div class="card border-l-4 border-l-green-500">
                             <h4 class="font-bold mb-2" data-lang="pl">Skutek rewolucji agrarnej</h4>
                             <h4 class="font-bold mb-2" data-lang="ru">Результат аграрной революции</h4>
-                            <p class="text-sm text-gray-300" data-lang="pl">Dzięki ziemniakom w wielu miejscach udało się uniknąć klęski głodu. Duża popularność zyskały ziemniaki, dzięki którym w wielu miejscach udało się uniknąć klęski głodu. Rozwinęła się produkcja cukru z buraków cukrowych, który stał się towarem łatwiej dostępnym, choć nadal jego spożycie ograniczało się do kręgów ludzi zamożnych.</p>
-                            <p class="text-sm text-gray-300" data-lang="ru">Благодаря картофелю во многих местах удалось избежать голода. Большую популярность приобрел картофель, благодаря которому во многих местах удалось избежать голода. Развилось производство сахара из сахарной свеклы, который стал более доступным товаром, хотя его потребление по-прежнему ограничивалось кругами состоятельных людей.</p>
+                            <p class="text-sm text-gray-300" data-lang="pl">Dzięki ziemniakom w wielu miejscach udało się uniknąć klęski głodu. Rozwinęła się produkcja cukru z buraków cukrowych, który stał się towarem łatwiej dostępnym, choć nadal jego spożycie ograniczało się do kręgów ludzi zamożnych.</p>
+                            <p class="text-sm text-gray-300" data-lang="ru">Благодаря картофелю во многих местах удалось избежать голода. Развилось производство сахара из сахарной свеклы, который стал более доступным товаром, хотя его потребление по-прежнему ограничивалось кругами состоятельных людей.</p>
                         </div>
 
                         <div class="widget-box">
@@ -874,6 +952,33 @@
                             <h4 class="font-bold mb-2" data-lang="ru">Полезные изобретения</h4>
                             <p class="text-sm" data-lang="pl">Począwszy od lat 30. XVIII wieku, w Wielkiej Brytanii można było zaobserwować postęp techniczny w rzemiośle, ważny dla dalszego rozwoju gospodarczego Europy. Wynalazki brytyjskich rzemieślników i inżynierów umożliwiły usprawnienie i przyspieszenie procesu produkcji.</p>
                             <p class="text-sm" data-lang="ru">Начиная с 30-х годов XVIII века, в Великобритании можно было наблюдать технический прогресс в ремесле, важный для дальнейшего экономического развития Европы. Изобретения британских ремесленников и инженеров позволили усовершенствовать и ускорить производственный процесс.</p>
+                        </div>
+
+                        <div class="card">
+                            <h4 class="font-bold mb-3" data-lang="pl">Inne innowacje rolnicze:</h4>
+                            <h4 class="font-bold mb-3" data-lang="ru">Другие сельскохозяйственные инновации:</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-green-400 mt-1"></i>
+                                    <span data-lang="pl"><strong>Wapnowanie gleby</strong> - poprawa jakości i struktury ziemi</span>
+                                    <span data-lang="ru"><strong>Известкование почвы</strong> - улучшение качества и структуры земли</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-green-400 mt-1"></i>
+                                    <span data-lang="pl"><strong>Uprawa ziemniaków</strong> - więcej kalorii z hektara, możliwość wyżywienia większej populacji</span>
+                                    <span data-lang="ru"><strong>Выращивание картофеля</strong> - больше калорий с гектара, возможность прокормить большее население</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-green-400 mt-1"></i>
+                                    <span data-lang="pl"><strong>nowe rasy zwierząt gospodarskich</strong> - selekcja dająca więcej mleka i mięsa</span>
+                                    <span data-lang="ru"><strong>Новые породы домашних животных</strong> - селекция дающая больше молока и мяса</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-green-400 mt-1"></i>
+                                    <span data-lang="pl"><strong>Buraki cukrowe</strong> - rozwój produkcji cukru, wcześniej dostępnego tylko dla bogatych</span>
+                                    <span data-lang="ru"><strong>Сахарная свекла</strong> - развитие производства сахара, ранее доступного только богатым</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -952,22 +1057,22 @@
                             <h4 class="font-bold mb-4" data-lang="pl">Zastosowanie maszyny parowej:</h4>
                             <h4 class="font-bold mb-4" data-lang="ru">Применение паровой машины:</h4>
                             <div class="grid grid-cols-2 gap-3">
-                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded">
+                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded cursor-pointer hover:bg-white/10 transition-all" onclick="openModal('kopalnie')">
                                     <i class="fas fa-industry text-red-400"></i>
                                     <span class="text-sm" data-lang="pl">Kopalnie (pompy wodne)</span>
                                     <span class="text-sm" data-lang="ru">Шахты (водяные насосы)</span>
                                 </div>
-                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded">
-                                    <i class="fas fa-cut text-red-400"></i>
-                                    <span class="text-sm" data-lang="pl">Tkalnie (przemysł włókienniczy)</span>
-                                    <span class="text-sm" data-lang="ru">Ткацкие фабрики (текстиль)</span>
-                                </div>
-                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded">
+                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded cursor-pointer hover:bg-white/10 transition-all" onclick="openModal('huty')">
                                     <i class="fas fa-hammer text-red-400"></i>
                                     <span class="text-sm" data-lang="pl">Huty (metalurgia)</span>
                                     <span class="text-sm" data-lang="ru">Металлургические заводы</span>
                                 </div>
-                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded">
+                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded cursor-pointer hover:bg-white/10 transition-all" onclick="openModal('tkalnie')">
+                                    <i class="fas fa-cut text-red-400"></i>
+                                    <span class="text-sm" data-lang="pl">Tkalnie (przemysł włókienniczy)</span>
+                                    <span class="text-sm" data-lang="ru">Ткацкие фабрики (текстиль)</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-white/5 rounded cursor-pointer hover:bg-white/10 transition-all" onclick="openModal('transport')">
                                     <i class="fas fa-ship text-red-400"></i>
                                     <span class="text-sm" data-lang="pl">Transport (statki, później pociągi)</span>
                                     <span class="text-sm" data-lang="ru">Транспорт (корабли, позже поезда)</span>
@@ -981,6 +1086,90 @@
                             <p class="text-sm text-gray-300" data-lang="pl">Prawdziwą rewolucję zapoczątkowała maszyna parowa skonstruowana w 1763 r. przez Jamesa Watta i wprowadzona do użytku w latach 70. XVIII w. Napęd parowy, używany najpierw tylko w kopalniach, znalazł później zastosowanie również w tkalniach, przędzalniach i hutach. W konsekwencji nastąpił szybki rozwój przemysłu bawełnianego i wełnianego, górnictwa oraz hutnictwa.</p>
                             <p class="text-sm text-gray-300" data-lang="ru">Настоящую революцию начал паровой двигатель, сконструированный в 1763 г. Джеймсом Уаттом и введенный в эксплуатацию в 70-х годах XVIII в. Паровой привод, использовавшийся сначала только в шахтах, позже нашел применение также в ткацких и прядильных фабриках и металлургии. В результате произошло быстрое развитие хлопчатобумажной и шерстяной промышленности, горнодобычи и металлургии.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+    <!-- Steam Engine Applications Modals -->
+    <div id="modal-kopalnie" class="app-modal">
+        <div class="app-modal-content">
+            <button class="app-modal-close" onclick="closeModal('modal-kopalnie')"><i class="fas fa-times"></i></button>
+            <div class="app-modal-body">
+                <h3 class="app-modal-title" data-lang="pl">Kopalnie — pompy wodne</h3>
+                <h3 class="app-modal-title" data-lang="ru">Шахты — водяные насосы</h3>
+                <div class="app-modal-desc prose-custom">
+                    <p data-lang="pl">Maszyny parowe służyły do odprowadzania wody z kopalni, która gromadziła się w szybkach. Pierwszym praktycznym silnikiem parowym była maszyna Newcomena (1712), a później ulepszona wersja od Jamesa Watta (1769), która znacznie zwiększyła sprawność.</p>
+                    <p data-lang="ru">Паровые двигатели использовались для откачки воды из шахт, которая скапливалась в шахтных колодце. Первым практическим паровым двигателем была машина Ньюкомена (1712), а затем улучшенная версия Джеймса Уатта (1769), значительно повысившая эффективность.</p>
+                </div>
+                <div class="app-gallery">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Newcomen_steam_engine.jpg" alt="Newcomen steam engine">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Watt7783.png" alt="Watt steam engine diagram">
+                    <div class="app-video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/0SwKo2StQLA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-huty" class="app-modal">
+        <div class="app-modal-content">
+            <button class="app-modal-close" onclick="closeModal('modal-huty')"><i class="fas fa-times"></i></button>
+            <div class="app-modal-body">
+                <h3 class="app-modal-title" data-lang="pl">Huty — metalurgia</h3>
+                <h3 class="app-modal-title" data-lang="ru">Металлургические заводы</h3>
+                <div class="app-modal-desc prose-custom">
+                    <p data-lang="pl">W hutach parowy napęd napędzał wentylatory, tłoki pieców oraz prasy do walcowania blachy. Dzięki temu produkcja żelaza i stali była możliwa w większych skalach i z mniejszym zużyciem paliwa.</p>
+                    <p data-lang="ru">На металлургических заводах паровой привод приводил в действие вентиляторы, поршни печей и прессы для проката листовой стали. Благодаря этому производство железа и стали стало возможным в больших масштабах и с меньшим расходом топлива.</p>
+                </div>
+                <div class="app-gallery">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Blast_Furnaces_at_Blists_Hill.jpg" alt="Blast furnaces at Blists Hill">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Germany_First_Coke_Blast_Furnace_Miniature_DM.jpg" alt="Coke blast furnace">
+                    <div class="app-video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/t3Ga1wtuVwI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tkalnie" class="app-modal">
+        <div class="app-modal-content">
+            <button class="app-modal-close" onclick="closeModal('modal-tkalnie')"><i class="fas fa-times"></i></button>
+            <div class="app-modal-body">
+                <h3 class="app-modal-title" data-lang="pl">Tkalnie — przemysł włókienniczy</h3>
+                <h3 class="app-modal-title" data-lang="ru">Ткацкие фабрики — текстильная промышленность</h3>
+                <div class="app-modal-desc prose-custom">
+                    <p data-lang="pl">W tkalniach i przędzalniach parowy silnik napędzał krosna i przędzarki poprzez pasek napędowy. To umożliwiło zbudowanie dużych, wielopiętrowych budyniów przemysłowych, niezależnych od siły wody.</p>
+                    <p data-lang="ru">В ткацких и прядильных фабриках паровой двигатель приводил ткацкие станки и прядильные машины через ременной привод. Это позволило построить большие многоэтажные промышленные здания, независящие от силы воды.</p>
+                </div>
+                <div class="app-gallery">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Cotton_textile_mill_interior_with_machines_producing_cotton_thread,_probably_in_Tashkent_LOC_9631428466.jpg" alt="Cotton textile mill interior">
+                    <div class="app-video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/2lRMpFBqSC0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-transport" class="app-modal">
+        <div class="app-modal-content">
+            <button class="app-modal-close" onclick="closeModal('modal-transport')"><i class="fas fa-times"></i></button>
+            <div class="app-modal-body">
+                <h3 class="app-modal-title" data-lang="pl">Transport — statki, później pociągi</h3>
+                <h3 class="app-modal-title" data-lang="ru">Транспорт — корабли, позже поезда</h3>
+                <div class="app-modal-desc prose-custom">
+                    <p data-lang="pl">Parowy silnik najpierw napędzał statki — pierwszym pomyślnym statek parowy Clermont wypłynął w 1807 r. Następnie zastosowano go w kolejach, gdzie parowa lokomotywa, jak Rocket (1829), zrewolucjonizowała transport, czyniąc go szybszym i niezawodniejszym.</p>
+                    <p data-lang="ru">Паровой двигатель прежде всего приводил в действие пароходы — первый удачный пароход Clermont отправился в плавание в 1807 г. Затем его применили на железных дорогах, где паровая локомотива, такая как Rocket (1829), революционизировала транспорт, сделав его быстрее и надёжнее.</p>
+                </div>
+                <div class="app-gallery">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Clermont_%28steamboat%29.JPG" alt="Clermont steamboat">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Stephenson%27s_Rocket.jpg" alt="Stephenson's Rocket">
+                    <div class="app-video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Z-qj5wsHE4o" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -1003,8 +1192,8 @@
                 <div class="grid-custom">
                     <div class="space-y-6">
                         <div class="card">
-                            <h3 class="title-md text-blue-400 mb-4" data-lang="pl">Wielka Brytania - kolebka rewolucji przemysłowej</h3>
-                            <h3 class="title-md text-blue-400 mb-4" data-lang="ru">Великобритания - колыбель промышленной революции</h3>
+                            <h3 class="title-md text-blue-400 mb-4" data-lang="pl">Wielka Brytania - początek rewolucji przemysłowej</h3>
+                            <h3 class="title-md text-blue-400 mb-4" data-lang="ru">Великобритания - начало промышленной революции</h3>
                             <div class="prose-custom">
                                 <p data-lang="pl">U schyłku XVIII wieku Wielka Brytania była pierwszym krajem na świecie, w którym urządzenia napędzane siłą wody lub mięśni ludzi i zwierząt w coraz większym stopniu zastępowano <strong>maszynami poruszanymi silnikami parowymi</strong>. Zasadniczą zmianę w produkcji przyniosło zastosowanie na dużą skalę węgla kamiennego (a potem uzyskiwanego z niego bardziej kalorycznego koksu) jako źródła energii cieplnej.</p>
                                 <p data-lang="ru">В конце XVIII века Великобритания стала первой страной в мире, где устройства, приводимые в движение силой воды или мышц людей и животных, в все большей степени заменялись <strong>машинами с паровыми двигателями</strong>. Принципиальное изменение в производстве принесло применение в больших масштабах каменного угля (а затем получаемого из него более калорийного кокса) в качестве источника тепловой энергии.</p>
@@ -1012,8 +1201,8 @@
                         </div>
 
                         <div class="card">
-                            <h4 class="font-bold mb-3" data-lang="pl">Kluczowe gałęzie przemysłu:</h4>
-                            <h4 class="font-bold mb-3" data-lang="ru">Ключевые отрасли промышленности:</h4>
+                            <h4 class="font-bold mb-3" data-lang="pl">Kluczowe zjawiska przemysłu:</h4>
+                            <h4 class="font-bold mb-3" data-lang="ru">Ключевые явления промышленности:</h4>
                             <div class="space-y-3">
                                 <div class="flex items-start gap-3 p-3 bg-white/5 rounded-lg">
                                     <i class="fas fa-tshirt text-blue-400 mt-1"></i>
@@ -1049,7 +1238,7 @@
                             <h4 class="font-bold mb-2" data-lang="pl">Rewolucja przemysłowa - definicja</h4>
                             <h4 class="font-bold mb-2" data-lang="ru">Промышленная революция - определение</h4>
                             <p class="text-sm" data-lang="pl"><strong>Rewolucja przemysłowa</strong> to rozwój technologiczny polegający na przechodzeniu od produkcji rzemieślniczej i manufakturowej do wytwórstwa opartego na pracy maszyn. Dużą rolę w tym procesie odegrało zastosowanie maszyny parowej jako napędu. Za pierwszą fazę rewolucji przemysłowej uważa się przekształcenia, które nastąpiły w gospodarce brytyjskiej w 2. połowie XVIII w.</p>
-                            <p class="text-sm" data-lang="ru"><strong>Промышленная революция</strong> - технологическое развитие, заключающееся в переходе от кустарного и мануфактурного производства к производству, основанному на работе машин. Большую роль в этом процессе сыграло применение паровой машины в качестве привода. За первую фазу промышленной революции считаются преобразования, произошедшие в британской экономике во 2-й половине XVIII в.</p>
+                            <p class="text-sm" data-lang="ru"><strong>Промышленная революция</strong> - технологическое развитие, заключающееся в переходе от кустарного и мануфактурного производства к производству, основанному на работе машин. Большую роль в этом процессе сыграло применение паровой машины в качестве привода. За первую фазу промышленной революции считаются преобразования, произошедшие в британской экономике во 2-й половинe XVIII в.</p>
                         </div>
                     </div>
 
@@ -1442,13 +1631,31 @@
             updateSlide();
         }
 
-        function toggleLanguage() {
+         function toggleLanguage() {
             isRussian = !isRussian;
             document.body.classList.toggle('lang-ru', isRussian);
             document.getElementById('lang-text').textContent = isRussian ? 'PL' : 'RU';
         }
 
+        function openModal(modalId) {
+            document.getElementById('modal-' + modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         document.addEventListener('keydown', (e) => {
+            const openModalEl = document.querySelector('.app-modal.active');
+            if (openModalEl) {
+                if (e.key === 'Escape' || e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === ' ') {
+                    openModalEl.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                return;
+            }
             if (e.key === 'ArrowRight' || e.key === ' ') {
                 nextSlide();
             } else if (e.key === 'ArrowLeft') {
